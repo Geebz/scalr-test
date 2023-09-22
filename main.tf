@@ -12,6 +12,6 @@ provider "random" {
 }
 
 resource "random_integer" "priority" {
-  min = 1
+  min = 2
   max = 500
-
+}
