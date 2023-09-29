@@ -5,10 +5,8 @@ package terraform
 import input.tfplan as tfplan
 
 
-deny["Can not destroy workspace with active state"] {
+deny["Can not destroy bucket"] {
     resource := tfplan.resource_changes[_]
     "delete" == resource.change.actions[count(resource.change.actions) - 1]
     "aws_s3_bucket" == resource.type
-
-    resource.change.before.has_resources
 }
